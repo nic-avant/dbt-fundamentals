@@ -2,8 +2,27 @@ import pathlib
 import sqlite3
 from sqlite3 import Error
 
+import pandas as pd
+
 HOME = pathlib.Path.home()
 PROJECT_PATH = pathlib.Path(HOME, "work", "dbt-fundamentals")
+
+
+def create_tables(db_file):
+    conn = sqlite3.connect(db_file)
+
+    customers = pd.read_csv(
+        str(pathlib.Path(PROJECT_PATH, "data", "jaffle_shop_customers.csv"))
+    )
+    customers.to_sql("customers", conn, schema="main", if_exists="replace")
+
+    orders = pd.read_csv(
+        str(pathlib.Path(PROJECT_PATH, "data", "jaffle_shop_orders.csv"))
+    )
+    orders.to_sql("orders", conn, schema="main", if_exists="replace")
+
+    stripe = pd.read_csv(str(pathlib.Path(PROJECT_PATH, "data", "stripe_payments.csv")))
+    stripe.to_sql("stripe", conn, schema="main", if_exists="replace")
 
 
 def create_connection(db_file):
@@ -21,3 +40,4 @@ def create_connection(db_file):
 
 if __name__ == "__main__":
     create_connection(f"{PROJECT_PATH}/data/db.db")
+    create_tables(f"{PROJECT_PATH}/data/db.db")
