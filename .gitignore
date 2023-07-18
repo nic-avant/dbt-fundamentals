@@ -177,3 +177,4 @@ pyrightconfig.json
 n
 data/db.db
 data/jaffle_shop.db
+data/stripe.db
