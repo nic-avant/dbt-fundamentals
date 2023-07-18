@@ -14,17 +14,17 @@ def create_tables(db_file):
     customers = pd.read_csv(
         str(pathlib.Path(PROJECT_PATH, "data", "jaffle_shop_customers.csv"))
     )
-    customers.to_sql("customers", conn, schema="main", if_exists="replace")
+    customers.to_sql("customers", conn, schema="jaffle_shop", if_exists="replace")
 
     orders = pd.read_csv(
         str(pathlib.Path(PROJECT_PATH, "data", "jaffle_shop_orders.csv"))
     )
-    orders.to_sql("orders", conn, schema="main", if_exists="replace")
+    orders.to_sql("orders", conn, schema="jaffle_shop", if_exists="replace")
 
     payments = pd.read_csv(
         str(pathlib.Path(PROJECT_PATH, "data", "stripe_payments.csv"))
     )
-    payments.to_sql("payments", conn, schema="main", if_exists="replace")
+    payments.to_sql("payments", conn, schema="jaffle_shop", if_exists="replace")
 
 
 def create_connection(db_file):
