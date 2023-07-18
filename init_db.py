@@ -21,8 +21,10 @@ def create_tables(db_file):
     )
     orders.to_sql("orders", conn, schema="main", if_exists="replace")
 
-    stripe = pd.read_csv(str(pathlib.Path(PROJECT_PATH, "data", "stripe_payments.csv")))
-    stripe.to_sql("stripe", conn, schema="main", if_exists="replace")
+    payments = pd.read_csv(
+        str(pathlib.Path(PROJECT_PATH, "data", "stripe_payments.csv"))
+    )
+    payments.to_sql("payments", conn, schema="main", if_exists="replace")
 
 
 def create_connection(db_file):
