@@ -21,9 +21,10 @@ outputs:
     type: sqlite
     threads: 1
     database: "database"
-    schema: "main"
     schemas_and_paths:
-      main: "/Users/npayne81/work/dbt-fundamentals/data/jaffle_shop.db"
+      main: "/Users/npayne81/work/dbt-fundamentals/data/main.db"
+      jaffle_shop: "/Users/npayne81/work/dbt-fundamentals/data/jaffle_shop.db"
+      stripe: "/Users/npayne81/work/dbt-fundamentals/data/stripe.db"
     schema_directory: "/Users/npayne81/work/dbt-fundamentals/data"
 ```
 
