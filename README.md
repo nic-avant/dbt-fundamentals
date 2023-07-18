@@ -35,6 +35,12 @@ outputs:
 
 ## NOTES
 
+### Pipeline Orchestration
+
+`dbt run --select <model>` will run for just that model. There isn't a separate
+api like Kedro has for `from-nodes` or `to-nodes`, but to run downstream models
+following the `ref` function you would do `dbt run --select <model>+`
+
 ### Naming Conventions
 
 In working on this project, we established some conventions for naming our models.
