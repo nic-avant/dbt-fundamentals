@@ -21,7 +21,7 @@ outputs:
     type: sqlite
     threads: 1
     database: "database"
-    schema: "main"
+    schema: "jaffle_shop"
     schemas_and_paths:
       main: "/Users/npayne81/work/dbt-fundamentals/data/db.db"
     schema_directory: "/Users/npayne81/work/dbt-fundamentals/data"
