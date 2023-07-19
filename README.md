@@ -33,6 +33,10 @@ outputs:
 
 > Pro-tip: `pip install visidata` then use `vd` to explore `data/data.db` at the terminal!
 
+## dbt test
+
+To run tests on selected models `dbt test --select <model_1> <model_2> ...`
+
 ## NOTES
 
 ### Pipeline Orchestration
