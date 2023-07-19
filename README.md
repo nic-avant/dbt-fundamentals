@@ -1,5 +1,9 @@
 DBT-Fundamentals
 
+## Questions
+
+Directory Structure: `./doom/models/staging/jaffle_shop/stg_jaffle_shop.yml` vs `./doom/models/staging/stg_jaffle_shop.yml`... the naming convention is unclear to me what matters and what is referenced where. I _THINK_ that the directory `jaffle_shop` is used in, and only in, `dbt_project.yml` for simpler configuration of a group of models, but otherwise model name and model reference is always done by the filename...
+
 [Course Link](https://courses.getdbt.com/courses/take/fundamentals)
 
 1. Make a virtual environment
@@ -35,7 +39,25 @@ outputs:
 
 ## dbt test
 
+[DOCS](https://docs.getdbt.com/reference/node-selection/test-selection-examples)
+
 To run tests on selected models `dbt test --select <model_1> <model_2> ...`
+
+### builtins
+
+dbt ships with four built in tests: unique, not null, accepted values, relationships.
+Unique tests to see if every value in a column is unique
+Not_null tests to see if every value in a column is not null
+Accepted_values tests to make sure every value in a column is equal to a value in a provided list
+Relationships tests to ensure that every value in a column exists in a column in another model (see: referential integrity)
+
+### Running tests
+
+Tests can be run against your current project using a range of commands:
+dbt test runs all tests in the dbt project
+dbt test --select test_type:generic
+dbt test --select test_type:singular
+dbt test --select one_specific_model
 
 ## NOTES
 
