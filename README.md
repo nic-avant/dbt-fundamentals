@@ -1,5 +1,9 @@
 DBT-Fundamentals
 
+## TODOs
+
+1. play with packages as a way to compose pipelines and distribute/manage aside from a monorepo
+
 ## Questions
 
 Directory Structure: `./doom/models/staging/jaffle_shop/stg_jaffle_shop.yml` vs `./doom/models/staging/stg_jaffle_shop.yml`... the naming convention is unclear to me what matters and what is referenced where. I _THINK_ that the directory `jaffle_shop` is used in, and only in, `dbt_project.yml` for simpler configuration of a group of models, but otherwise model name and model reference is always done by the filename...
